@@ -16,7 +16,7 @@ $(function () {
     }
     $('#bingo').append($table);
     $.getJSON('vocab.json', function (data) {
-        data.sort(randomSort);
+        data.sort(function () { return Math.random() < 0.5 ? -1 : 1; });
         for (var x = 0; x < headers.length; x++) {
             for (var y = 0; y < headers.length; y++) {
                 var term = x === 2 && y === 2 ? 'Freedom' : data.shift();
@@ -27,8 +27,8 @@ $(function () {
     $('#bingo td').click(function () {
         $(this).toggleClass('selected');
     });
+    setTimeout(function () {
+        window.scrollTo(0, 1);
+    }, 0);
 });
 
-function randomSort () {
-    return Math.random() < 0.5 ? -1 : 1;
-}
