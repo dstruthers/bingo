@@ -61,6 +61,34 @@ body {
     border-bottom-right-radius: 10px;
 }
 
+#menu {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+#menu ul {
+    display: inline-block;
+    padding: 0;
+}
+#menu ul li {
+    display: inline;
+    list-style-type: none;
+}
+#menu a {
+    background-position: center 5px;
+    display: inline-block;
+    padding: 55px 5px 5px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+#menu a:hover {
+    background-color: #14f;
+}
+#menu-new {
+    background: url('images/refresh.svg') no-repeat;
+}
+
 @media (max-width: 1000px) {
     body {
         margin: 0;

@@ -1,4 +1,23 @@
 $(function () {
+    if (location.hash && !isNaN(parseInt(location.hash.substring(1)))) {
+        setSeed(parseInt(location.hash.substring(1)));
+    }
+    else {
+        randomSeed();
+    }
+
+    generateCard();
+
+    $('#menu-new').click(function () {
+        randomSeed();
+        generateCard();
+        return false;
+    });
+});
+
+function generateCard () {
+    $('#card').html('');
+
     var $table = $('<table></table>'),
         $row = $('<tr></tr>'),
         headers = 'BINGO'.split('');
@@ -14,7 +33,7 @@ $(function () {
         }
         $table.append($row);
     }
-    $('#bingo').append($table);
+    $('#card').append($table);
     $.getJSON('vocab.json', function (data) {
         shuffle(data);
         for (var x = 0; x < headers.length; x++) {
@@ -24,10 +43,19 @@ $(function () {
             }
         }
     });
-    $('#bingo td').click(function () {
+    $('#card td').click(function () {
         $(this).toggleClass('selected');
     });
-});
+}
+
+function randomSeed () {
+    setSeed(Date.now() % 65537);
+}
+
+function setSeed (seed) {
+    Math.seedrandom(seed);
+    location.hash = seed;
+}
 
 function shuffle (a) {
     for (var i = 0; i < a.length; i++) {
