@@ -5,14 +5,8 @@ $(function () {
     else {
         randomSeed();
     }
-
     generateCard();
-
-    $('#menu-new').click(function () {
-        randomSeed();
-        generateCard();
-        return false;
-    });
+    $('#menu-new').click(newCard);
 });
 
 function generateCard () {
@@ -46,6 +40,11 @@ function generateCard () {
     $('#card td').click(function () {
         $(this).toggleClass('selected');
     });
+}
+
+function newCard () {
+    randomSeed();
+    generateCard();
 }
 
 function randomSeed () {
