@@ -49,7 +49,8 @@ function generateCard () {
 }
 
 function randomSeed () {
-    setSeed(Date.now() % 65537);
+    Math.seedrandom(Date.now() % 65537);
+    setSeed(Math.floor(Math.random() * 1000000));
 }
 
 function setSeed (seed) {
