@@ -6,7 +6,16 @@ $(function () {
         randomSeed();
     }
     generateCard();
-    $('#menu-new').click(newCard);
+
+    $('#menu-new').click(function () {
+        randomSeed();
+        generateCard();
+        return false;
+    });
+    $('#menu-print').click(function () {
+        window.print();
+        return false;
+    });
 });
 
 function generateCard () {
@@ -40,11 +49,6 @@ function generateCard () {
     $('#card td').click(function () {
         $(this).toggleClass('selected');
     });
-}
-
-function newCard () {
-    randomSeed();
-    generateCard();
 }
 
 function randomSeed () {

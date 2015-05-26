@@ -75,6 +75,7 @@ body {
 }
 #menu a {
     background-position: center 5px;
+    background-size: 45px 45px;
     display: inline-block;
     padding: 55px 5px 5px;
     text-decoration: none;
@@ -87,6 +88,9 @@ body {
 }
 #menu-new {
     background: url('images/refresh.svg') no-repeat;
+}
+#menu-print {
+    background: url('images/print.svg') no-repeat;
 }
 
 @media (max-width: 1000px) {
@@ -128,10 +132,18 @@ body {
     }
     #bingo table th {
         border-bottom: 1mm solid #000;
+        color: #000;
     }
     #bingo table td {
         width: 1.2in;
-        height: 1.5in;
+        height: 1.4in;
         border: 1mm solid #000;
+    }
+    #bingo table td, #bingo table td.selected {
+        color: #000;
+        background-color: transparent;
+    }
+    #menu {
+        display: none;
     }
 }
